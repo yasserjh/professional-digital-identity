@@ -3,17 +3,28 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const Footer = () => {
+interface FooterProps {
+    setPage: (page: 'home' | 'privacy' | 'terms') => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setPage }) => {
+    const { t } = useTranslation();
+    const currentYear = new Date().getFullYear();
+
+    const linkClasses = "hover:text-black transition-colors duration-100";
+
     return (
-        <footer className="relative w-full bg-[#0B3D2C]/90 backdrop-blur-sm p-3 z-50 text-[#F5F5DC] text-xs sm:text-sm">
-            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 px-4 text-center">
-                <div className="flex items-center gap-4 text-neutral-300 whitespace-nowrap">
-                    <p>
-                        Developed by Yasir Aljohani
-                    </p>
-                    <span className="text-neutral-500" aria-hidden="true">|</span>
-                    <p>Powered by Gemini 2.5 Flash Image</p>
+        <footer className="w-full bg-white border-t border-neutral-200 p-4 sm:p-6 text-sm text-neutral-500">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center">
+                <p>
+                    &copy; {currentYear} Egal. {t('footer.developedBy')}
+                </p>
+                <div className="flex items-center gap-4 sm:gap-6">
+                    <button onClick={() => setPage('privacy')} className={linkClasses}>{t('footer.privacy')}</button>
+                    <button onClick={() => setPage('terms')} className={linkClasses}>{t('footer.terms')}</button>
+                    <a href="mailto:contact@egal-app.com" className={linkClasses}>{t('footer.contact')}</a>
                 </div>
             </div>
         </footer>

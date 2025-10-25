@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import Loader from './ui/Loader';
 import { ImageStatus } from '../lib/types';
-// FIX: Add missing import for Button component
 import Button from './ui/Button';
 
 interface ResultCardProps {
@@ -77,7 +76,12 @@ const ResultCard: React.FC<ResultCardProps> = ({ status, imageUrl, caption }) =>
                 </p>
                 {status === 'done' && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                        <Button onClick={handleDownload} size="sm" variant="secondary" aria-label={`${t('results.download')} ${caption}`}>
+                        <Button
+                            onClick={handleDownload}
+                            size="sm"
+                            variant="secondary"
+                            aria-label={`${t('results.download')} ${caption}`}
+                        >
                             {t('results.download')}
                         </Button>
                     </motion.div>

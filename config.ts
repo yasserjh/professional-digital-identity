@@ -6,9 +6,6 @@
 // Simulates environment variables for app configuration.
 // In a real build system, these would come from a .env file.
 export const AppConfig = {
-    // URL of the deployed application, used for metadata.
-    URL: 'https://egal-app.com', // Replace with actual domain
-    
     // API client configuration
     GEMINI_API_TIMEOUT_MS: 30000, // 30 seconds
     GEMINI_API_MAX_RETRIES: 3,

@@ -7,15 +7,23 @@ import type { GenerateContentResponse } from "@google/genai";
 import { AppConfig } from '../config';
 import { GEMINI_MAIN_PROMPT } from '../lib/prompts';
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = (process.env.API_KEY ?? '').trim();
 
-if (!API_KEY) {
-  // This is a critical error for the app's functionality.
-  console.error("CRITICAL: GEMINI_API_KEY environment variable is not set.");
-  // In a real app, you might want to render an error page.
+let cachedClient: GoogleGenAI | null = null;
+
+function getGeminiClient(): GoogleGenAI {
+    if (!API_KEY) {
+        const errorMessage = "GEMINI_API_KEY environment variable is not set.";
+        console.error(errorMessage);
+        throw new Error(errorMessage);
+    }
+
+    if (!cachedClient) {
+        cachedClient = new GoogleGenAI({ apiKey: API_KEY });
+    }
+
+    return cachedClient;
 }
-
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
 
 /**
  * A timeout utility that rejects a promise after a specified duration.
@@ -70,9 +78,11 @@ export async function generateStyledImage(
 
     let lastError: Error | null = null;
 
+    const client = getGeminiClient();
+
     for (let attempt = 1; attempt <= AppConfig.GEMINI_API_MAX_RETRIES; attempt++) {
         try {
-            const apiCall = ai.models.generateContent({
+            const apiCall = client.models.generateContent({
                 model: 'gemini-2.5-flash-image',
                 contents: { parts: [imagePart, textPart] },
             });

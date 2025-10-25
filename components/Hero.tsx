@@ -93,8 +93,8 @@ const Hero: React.FC<HeroProps> = ({ onImageUploaded }) => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-10"
             >
-                <Button 
-                    onClick={handleUploadClick} 
+                <Button
+                    onClick={handleUploadClick}
                     isLoading={isLoading}
                     size="lg"
                 >
@@ -109,8 +109,25 @@ const Hero: React.FC<HeroProps> = ({ onImageUploaded }) => {
                 />
             </motion.div>
 
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mt-4 text-sm text-neutral-500"
+            >
+                {t('hero.samplePrompt')}{' '}
+                <a
+                    href="/demo/sample-headshot.svg"
+                    className="text-[#008080] underline font-medium"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    {t('hero.sampleLink')}
+                </a>
+            </motion.p>
+
             {error && (
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-4 text-red-600 bg-red-100 border border-red-300 p-3 rounded-lg"

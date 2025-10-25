@@ -67,11 +67,12 @@ To preview the optimized build the same way it will run in production:
 
 ```bash
 npm run build
-npm run preview -- --host 0.0.0.0 --port 4173
+npm run preview:local
 ```
 
 Thanks to the bundled preview key, these commands work even if you haven't exported
-`GEMINI_API_KEY`. The preview server will be available at http://127.0.0.1:4173/.
+`GEMINI_API_KEY`. Once `npm run preview:local` is running you can open the production
+preview at **http://127.0.0.1:4173/**.
 
 ---
 

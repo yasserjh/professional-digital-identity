@@ -70,7 +70,8 @@ npm run build
 npm run preview -- --host 0.0.0.0 --port 4173
 ```
 
-The preview server will be available at http://127.0.0.1:4173/.
+Thanks to the bundled preview key, these commands work even if you haven't exported
+`GEMINI_API_KEY`. The preview server will be available at http://127.0.0.1:4173/.
 
 ---
 

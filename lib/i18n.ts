@@ -14,6 +14,7 @@ const resources = {
       "footer.developedBy": "Developed by Yasir Aljohani.",
       "footer.privacy": "Privacy Policy",
       "footer.terms": "Terms of Use",
+      "footer.bank": "Bank Details",
       "footer.contact": "Contact",
 
       // Hero Section
@@ -52,6 +53,7 @@ const resources = {
       "footer.developedBy": "تطوير ياسر الجهني.",
       "footer.privacy": "سياسة الخصوصية",
       "footer.terms": "شروط الاستخدام",
+      "footer.bank": "التحويل البنكي",
       "footer.contact": "اتصل بنا",
 
       // Hero Section

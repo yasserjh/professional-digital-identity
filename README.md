@@ -52,14 +52,18 @@ GEMINI_API_KEY="your_gemini_api_key_here"
     npm install
     ```
 
-3.  **Set up your API Key:**
-    Create an `.env` file (or use your shell environment) with `GEMINI_API_KEY`. If you skip this step, the app will fall back to the bundled preview key so the UI still loads, but you should treat that key as temporary and replace it for any real usage.
-
-4.  **Run the application:**
+3.  **Run the app in development mode:**
     ```bash
     npm run dev
     ```
-    Vite will print the local development URL (default: http://127.0.0.1:5173).
+    Vite will print the local development URL (default: http://127.0.0.1:5173). You can start interacting with the UI immediately. If you have your own Gemini credentials available, export them before running the command:
+    ```bash
+    export GEMINI_API_KEY="your_key_here"
+    ```
+    When no key is provided, the app automatically falls back to the preview credential so that you can still click through the interface for smoke testing.
+
+4.  **(Optional) Set up your API Key for full functionality:**
+    Create an `.env` file (or use your shell environment) with `GEMINI_API_KEY`. This unlocks authenticated Gemini requests so that generation features work end-to-end. The preview key should only be used for quick UI checks.
 
 ### Previewing the production build
 
@@ -73,6 +77,16 @@ npm run preview:local
 Thanks to the bundled preview key, these commands work even if you haven't exported
 `GEMINI_API_KEY`. Once `npm run preview:local` is running you can open the production
 preview at **http://127.0.0.1:4173/**.
+
+### Quick testing checklist
+
+Use these commands to cover the most common testing flows:
+
+| Goal | Command | What to look for |
+| --- | --- | --- |
+| Fast UI smoke test | `npm run dev` | Confirm the page renders at http://127.0.0.1:5173 and the main navigation works. |
+| Production build preview | `npm run build && npm run preview:local` | Visit http://127.0.0.1:4173 to ensure the optimized bundle loads without console errors. |
+| End-to-end Gemini checks | `export GEMINI_API_KEY="your_key_here"` then rerun either workflow | Verify AI-powered features respond successfully with your own API quota. |
 
 ---
 

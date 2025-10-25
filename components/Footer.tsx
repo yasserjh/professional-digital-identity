@@ -6,7 +6,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface FooterProps {
-    setPage: (page: 'home' | 'privacy' | 'terms') => void;
+    setPage: (page: 'home' | 'privacy' | 'terms' | 'bank') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ setPage }) => {
@@ -24,6 +24,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
                 <div className="flex items-center gap-4 sm:gap-6">
                     <button onClick={() => setPage('privacy')} className={linkClasses}>{t('footer.privacy')}</button>
                     <button onClick={() => setPage('terms')} className={linkClasses}>{t('footer.terms')}</button>
+                    <button onClick={() => setPage('bank')} className={linkClasses}>{t('footer.bank')}</button>
                     <a href="mailto:contact@egal-app.com" className={linkClasses}>{t('footer.contact')}</a>
                 </div>
             </div>

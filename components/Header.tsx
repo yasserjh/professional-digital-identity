@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import Logo from './ui/Logo';
 
 interface HeaderProps {
-    setPage: (page: 'home' | 'privacy' | 'terms') => void;
+    setPage: (page: 'home' | 'privacy' | 'terms' | 'bank') => void;
     credits: number;
 }
 

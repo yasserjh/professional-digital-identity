@@ -7,15 +7,15 @@ import type { GenerateContentResponse } from "@google/genai";
 import { AppConfig } from '../config';
 import { GEMINI_MAIN_PROMPT } from '../lib/prompts';
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = (process.env.API_KEY ?? '').trim();
 
 if (!API_KEY) {
-  // This is a critical error for the app's functionality.
-  console.error("CRITICAL: GEMINI_API_KEY environment variable is not set.");
-  // In a real app, you might want to render an error page.
+  const errorMessage = "CRITICAL: GEMINI_API_KEY environment variable is not set.";
+  console.error(errorMessage);
+  throw new Error(errorMessage);
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 /**
  * A timeout utility that rejects a promise after a specified duration.

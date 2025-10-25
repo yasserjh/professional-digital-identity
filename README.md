@@ -70,13 +70,14 @@ GEMINI_API_KEY="your_gemini_api_key_here"
 To preview the optimized build the same way it will run in production:
 
 ```bash
-npm run build
 npm run preview:local
 ```
 
-Thanks to the bundled preview key, these commands work even if you haven't exported
-`GEMINI_API_KEY`. Once `npm run preview:local` is running you can open the production
-preview at **http://127.0.0.1:4173/**.
+The script automatically builds the project before starting `vite preview`, so you will never
+hit the blank/404 page that appeared previously when the `dist/` folder hadn't been generated.
+Thanks to the bundled preview key, the preview works even if you haven't exported
+`GEMINI_API_KEY`. Once the command is running you can open the production preview at
+**http://127.0.0.1:4173/**.
 
 ### Quick testing checklist
 
@@ -85,7 +86,7 @@ Use these commands to cover the most common testing flows:
 | Goal | Command | What to look for |
 | --- | --- | --- |
 | Fast UI smoke test | `npm run dev` | Confirm the page renders at http://127.0.0.1:5173 and the main navigation works. |
-| Production build preview | `npm run build && npm run preview:local` | Visit http://127.0.0.1:4173 to ensure the optimized bundle loads without console errors. |
+| Production build preview | `npm run preview:local` | Visit http://127.0.0.1:4173 to ensure the optimized bundle loads without console errors. |
 | End-to-end Gemini checks | `export GEMINI_API_KEY="your_key_here"` then rerun either workflow | Verify AI-powered features respond successfully with your own API quota. |
 
 ---

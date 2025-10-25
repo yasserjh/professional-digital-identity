@@ -28,6 +28,8 @@ This project is built with React, TypeScript, and Google's Gemini API.
 
 Before running the application you must provide a Google Gemini API key. The Vite build reads a `GEMINI_API_KEY` variable from your environment and exposes it to the frontend as `process.env.API_KEY`.
 
+> **Preview shortcut:** For convenience, the project now falls back to a preview-only API key (`AIzaSyBwz0yVONdv8iTkJRTJdK0o6U7fQ5nCzB8`) when no environment variable is supplied. This allows the hosted preview to boot without manual setup. You should always override this value with your own credentials for local development and production deployments.
+
 When deploying to platforms like Vercel, configure this in the project's environment variable settings.
 
 **Example `.env` configuration**:
@@ -51,7 +53,7 @@ GEMINI_API_KEY="your_gemini_api_key_here"
     ```
 
 3.  **Set up your API Key:**
-    The AI Studio environment automatically injects the API key. For local development outside of that environment, you would need a way to provide `process.env.API_KEY` to your frontend code, typically through a build tool like Vite or Create React App.
+    Create an `.env` file (or use your shell environment) with `GEMINI_API_KEY`. If you skip this step, the app will fall back to the bundled preview key so the UI still loads, but you should treat that key as temporary and replace it for any real usage.
 
 4.  **Run the application:**
     ```bash

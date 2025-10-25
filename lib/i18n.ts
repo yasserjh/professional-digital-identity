@@ -14,12 +14,15 @@ const resources = {
       "footer.developedBy": "Developed by Yasir Aljohani.",
       "footer.privacy": "Privacy Policy",
       "footer.terms": "Terms of Use",
+      "footer.bank": "Bank Details",
       "footer.contact": "Contact",
 
       // Hero Section
       "hero.tagline": "Wear your identity — digitally.",
       "hero.description": "Upload a clear, front-facing photo to generate your professional Saudi digital identity. Your photo is processed once and never stored.",
       "hero.cta": "Upload Photo",
+      "hero.samplePrompt": "Need a test image?",
+      "hero.sampleLink": "Download our sample headshot.",
       
       // Upload Validation
       "upload.error.title": "Upload Error",
@@ -36,7 +39,6 @@ const resources = {
       "results.generatingError": "Generation Failed",
       "results.tryAgain": "Please try again.",
       "results.noCredits": "No credits remaining.",
-      "results.redeemCode": "Redeem Code",
       "results.enterCode": "Enter code...",
       "results.redeem": "Redeem",
 
@@ -52,12 +54,15 @@ const resources = {
       "footer.developedBy": "تطوير ياسر الجهني.",
       "footer.privacy": "سياسة الخصوصية",
       "footer.terms": "شروط الاستخدام",
+      "footer.bank": "التحويل البنكي",
       "footer.contact": "اتصل بنا",
 
       // Hero Section
       "hero.tagline": "ارتدِ هويتك — رقميًا.",
       "hero.description": "حمّل صورة شخصية واضحة للحصول على هويتك الرقمية السعودية الاحترافية. تتم معالجة صورتك لمرة واحدة فقط ولا يتم تخزينها.",
       "hero.cta": "حمّل الصورة",
+      "hero.samplePrompt": "هل تحتاج إلى صورة للتجربة؟",
+      "hero.sampleLink": "حمّل الصورة التجريبية لدينا.",
 
       // Upload Validation
       "upload.error.title": "خطأ في التحميل",
@@ -74,7 +79,6 @@ const resources = {
       "results.generatingError": "فشل الإنشاء",
       "results.tryAgain": "الرجاء المحاولة مرة أخرى.",
       "results.noCredits": "لا يوجد رصيد متبقي.",
-      "results.redeemCode": "استخدام الرمز",
       "results.enterCode": "أدخل الرمز...",
       "results.redeem": "استخدام",
 

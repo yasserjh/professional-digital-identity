@@ -19,13 +19,12 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, React.Dispatch<Re
     });
 
     useEffect(() => {
+        if (typeof window === 'undefined') {
+            return;
+        }
+
         try {
-            if (typeof window !== 'undefined') {
-                const valueToStore = typeof storedValue === 'function' 
-                    ? (storedValue as Function)(storedValue) 
-                    : storedValue;
-                window.localStorage.setItem(key, JSON.stringify(valueToStore));
-            }
+            window.localStorage.setItem(key, JSON.stringify(storedValue));
         } catch (error) {
             console.error(error);
         }

@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 import React from 'react';
-// FIX: Import HTMLMotionProps and use it to type the button component to avoid type conflicts.
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../lib/utils';
 import Loader from './Loader';

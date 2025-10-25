@@ -17,9 +17,10 @@ import Hero from './components/Hero';
 import ResultsGrid from './components/ResultsGrid';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import TermsOfService from './components/pages/TermsOfService';
+import BankDetails from './components/pages/BankDetails';
 
 type AppState = 'idle' | 'image-uploaded' | 'generating' | 'results-shown';
-type Page = 'home' | 'privacy' | 'terms';
+type Page = 'home' | 'privacy' | 'terms' | 'bank';
 
 function App() {
     const { i18n } = useTranslation();
@@ -59,6 +60,7 @@ function App() {
         switch (page) {
             case 'privacy': return <PrivacyPolicy />;
             case 'terms': return <TermsOfService />;
+            case 'bank': return <BankDetails />;
             case 'home':
             default:
                 return (

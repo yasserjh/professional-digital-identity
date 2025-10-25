@@ -26,15 +26,15 @@ This project is built with React, TypeScript, and Google's Gemini API.
 
 ### Environment Variables
 
-Before running the application, you need to configure your environment variables. The application expects a `process.env.API_KEY` to be available in its environment.
+Before running the application you must provide a Google Gemini API key. The Vite build reads a `GEMINI_API_KEY` variable from your environment and exposes it to the frontend as `process.env.API_KEY`.
 
 When deploying to platforms like Vercel, configure this in the project's environment variable settings.
 
-**Example Configuration (`.env.example`)**:
+**Example `.env` configuration**:
 
 ```
 # Your Google Gemini API Key
-API_KEY="your_gemini_api_key_here"
+GEMINI_API_KEY="your_gemini_api_key_here"
 ```
 
 ### Installation & Local Development
@@ -46,13 +46,29 @@ API_KEY="your_gemini_api_key_here"
     ```
 
 2.  **Install dependencies:**
-    This project uses ES modules imported via an `importmap`, so no `npm install` is required for the specified packages. Ensure you have a local server to serve the files correctly. The Live Server extension in VS Code is a good option.
+    ```bash
+    npm install
+    ```
 
 3.  **Set up your API Key:**
     The AI Studio environment automatically injects the API key. For local development outside of that environment, you would need a way to provide `process.env.API_KEY` to your frontend code, typically through a build tool like Vite or Create React App.
 
 4.  **Run the application:**
-    Serve the `index.html` file using a local web server.
+    ```bash
+    npm run dev
+    ```
+    Vite will print the local development URL (default: http://127.0.0.1:5173).
+
+### Previewing the production build
+
+To preview the optimized build the same way it will run in production:
+
+```bash
+npm run build
+npm run preview -- --host 0.0.0.0 --port 4173
+```
+
+The preview server will be available at http://127.0.0.1:4173/.
 
 ---
 
@@ -67,7 +83,7 @@ This application is a static single-page application and can be deployed to any 
 3.  **Configure Environment Variables**:
     - Go to your project's **Settings > Environment Variables**.
     - Add a new variable:
-      - **Name**: `API_KEY`
+      - **Name**: `GEMINI_API_KEY`
       - **Value**: `your_gemini_api_key_here`
 4.  **Deploy**. Your site will be live at the provided Vercel domain.
 
@@ -77,7 +93,7 @@ This application is a static single-page application and can be deployed to any 
 
 - [ ] **Domain**: Custom domain is configured and pointing to the deployment.
 - [ ] **HTTPS**: SSL certificate is active and enforced.
-- [ ] **API Key**: The `API_KEY` environment variable is correctly set in the production environment.
+- [ ] **API Key**: The `GEMINI_API_KEY` environment variable is correctly set in the production environment.
 - [ ] **Responsiveness**: Test the application on various devices (Desktop, Tablet, Mobile).
 - [ ] **Functionality**:
     - [ ] Image upload works (with validation).
